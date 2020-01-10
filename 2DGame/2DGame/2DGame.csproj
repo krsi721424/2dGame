@@ -51,7 +51,10 @@
     <Compile Include="CanvasForm.Designer.cs">
       <DependentUpon>CanvasForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Engine\Collision.cs" />
     <Compile Include="Engine\GameManager.cs" />
+    <Compile Include="Engine\IMovable.cs" />
+    <Compile Include="Engine\Point.cs" />
     <Compile Include="Engine\UserInputController.cs" />
     <Compile Include="GameStartMenu.cs">
       <SubType>Form</SubType>
