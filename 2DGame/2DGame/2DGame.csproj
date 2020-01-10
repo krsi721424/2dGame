@@ -66,6 +66,8 @@
     <Compile Include="GameStartMenu.Designer.cs">
       <DependentUpon>GameStartMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Levels\Level.cs" />
+    <Compile Include="PathFinding\MatrixNode.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CanvasForm.resx">
