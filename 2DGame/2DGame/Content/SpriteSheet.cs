@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Shooter.Content
+namespace _2DGame.Content
 {
     class SpriteSheet
     {
@@ -20,7 +16,7 @@ namespace Shooter.Content
 
         public bool Mirror { get; set; }
 
-        public SpriteSheet(string assetname, int sheetIndex = 0)
+        public SpriteSheet(Bitmap assetname, int sheetIndex = 0)
         {
             //load sprite from file
             sprite = new Bitmap(assetname);
@@ -41,7 +37,7 @@ namespace Shooter.Content
             SheetIndex = sheetIndex;
         }
 
-        public void Draw(Graphics graphics, Point position)
+        public void Draw(Graphics graphics, Engine.Point position)
         {
             PointF pos = new PointF(position.X, position.Y);
             graphics.DrawImage(bitmaps[sheetIndex], pos);
@@ -57,9 +53,9 @@ namespace Shooter.Content
             get { return sprite.Height / sheetRows; }
         }
 
-        public Point Center
+        public Engine.Point Center
         {
-            get { return new Point(Width, Height) / 2; }
+            get { return new Engine.Point(Width, Height) / 2; }
         }
 
         public int SheetIndex

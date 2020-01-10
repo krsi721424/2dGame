@@ -1,16 +1,12 @@
-﻿using Shooter.Levels;
-using System;
-using System.Collections.Generic;
+﻿using _2DGame.LevelObjects;
+using _2DGame.Levels;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Shooter.Guns
+namespace _2DGame.Guns
 {
     interface IGun
     {
-        void Update(Level level, Levels.LevelObjects.Player player);
+        void Update(Level level, Player player);
         void Draw(Graphics graphics);
     }
 }

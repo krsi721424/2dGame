@@ -1,11 +1,8 @@
-﻿using Shooter.GameObjects;
-using System;
+﻿using _2DGame.GameObjects;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Drawing;
 
-namespace Shooter.Levels.LevelObjects.Animation
+namespace _2DGame.LevelObjects.Animation
 {
     class AnimatedGameObject : SpriteGameObject
     {
@@ -17,7 +14,7 @@ namespace Shooter.Levels.LevelObjects.Animation
             animations = new Dictionary<string, Animation>();
         }
 
-        public void LoadAnimation(string assetName, string id, bool looping, float frameTime)
+        public void LoadAnimation(Bitmap assetName, string id, bool looping, float frameTime)
         {
             Animation anim = new Animation(assetName, looping, frameTime);
             animations[id] = anim;

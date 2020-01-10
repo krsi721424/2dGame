@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using _2DGame.GameStates;
+using _2DGame.GameStates.States;
+using System;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace _2DGame.Engine
@@ -12,6 +10,7 @@ namespace _2DGame.Engine
     {
         public static string StateName_Playing = "playing";
 
+        private GameStateManager gameStateManager;
         private DateTime endTime;
         public Form GameMenu { get; set; }
         public CanvasForm Canvas { get; set; }
@@ -25,12 +24,14 @@ namespace _2DGame.Engine
 
         private GameManager()
         {
-            //game state inicjalize
+            this.gameStateManager = new GameStateManager();
+            this.gameStateManager.AddGameState(StateName_Playing, new PlayingState(this.level));
         }
 
         public void LoadContent()
         {
             this.NewGame();
+            this.gameStateManager.SwitchTo(StateName_Playing);
         }
 
         internal void UpdateGame(PictureBox canvas)
@@ -38,7 +39,7 @@ namespace _2DGame.Engine
             if (!stopGame)
             {
                 CalcDelta();
-                
+                this.gameStateManager.Update(CurrentFps);
             }
             else
             {
@@ -65,7 +66,7 @@ namespace _2DGame.Engine
 
         internal void Draw(Graphics graphics)
         {
-            
+            this.gameStateManager.Draw(graphics);
         }
 
         private void CalcDelta()
@@ -86,7 +87,7 @@ namespace _2DGame.Engine
         {
             this.stopGame = false;
             this.Canvas.NewGame();
-            
+            this.gameStateManager.Reset();
         }
     }
 }

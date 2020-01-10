@@ -1,14 +1,13 @@
-﻿using Shooter.GameObjects;
-using Shooter.Levels;
+﻿using _2DGame.Engine;
+using _2DGame.GameObjects;
+using _2DGame.LevelObjects;
+using _2DGame.Levels;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Shooter.Guns
+namespace _2DGame.Guns
 {
     internal class Revolver : GameObjectList, IGun
     {
@@ -59,7 +58,7 @@ namespace Shooter.Guns
             }
         }
 
-        private void Shoot(Level level, Levels.LevelObjects.Player player, Direction dir)
+        private void Shoot(Level level, Player player, Direction dir)
         {
             if (canShoot)
             {
@@ -77,7 +76,7 @@ namespace Shooter.Guns
             }
         }
 
-        public void Update(Level level, Levels.LevelObjects.Player player)
+        public void Update(Level level, Player player)
         {
             #region i need to change this, this is very ugly
             if (UserInputController.KeyPressed(Keys.Up))

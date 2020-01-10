@@ -51,6 +51,7 @@
     <Compile Include="CanvasForm.Designer.cs">
       <DependentUpon>CanvasForm.cs</DependentUpon>
     </Compile>
+	<Compile Include="Content\SpriteSheet.cs" />
     <Compile Include="Engine\Collision.cs" />
     <Compile Include="Engine\GameManager.cs" />
     <Compile Include="Engine\IMovable.cs" />
@@ -60,6 +61,18 @@
     <Compile Include="GameObjects\GameObjectList.cs" />
     <Compile Include="GameObjects\IGameLoopObject.cs" />
     <Compile Include="GameObjects\SpriteGameObject.cs" />
+	<Compile Include="GameStates\States\PlayingState.cs" />
+	<Compile Include="GameStates\GameState.cs" />
+	<Compile Include="GameStates\GameStateManager.cs" />
+	<Compile Include="Guns\Bullet.cs" />
+	<Compile Include="Guns\IGun.cs" />
+	<Compile Include="Guns\Revolver.cs" />
+	<Compile Include="Guns\Shotgun.cs" />
+	<Compile Include="LevelObjects\Tile.cs" />
+	<Compile Include="LevelObjects\Player.cs" />
+	<Compile Include="LevelObjects\Enemies\FallowingEnemy.cs" />
+	<Compile Include="LevelObjects\Animation\AnimatedGameObject.cs" />
+	<Compile Include="LevelObjects\Animation\Animation.cs" />
     <Compile Include="GameStartMenu.cs">
       <SubType>Form</SubType>
     </Compile>

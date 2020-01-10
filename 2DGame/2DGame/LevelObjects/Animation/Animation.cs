@@ -1,11 +1,8 @@
-﻿using Shooter.Content;
+﻿using _2DGame.Content;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Drawing;
 
-namespace Shooter.Levels.LevelObjects.Animation
+namespace _2DGame.LevelObjects.Animation
 {
     class Animation : SpriteSheet
     {
@@ -22,7 +19,7 @@ namespace Shooter.Levels.LevelObjects.Animation
 
         DateTime Time;
 
-        public Animation(string assetname, bool looping, float timePerFrame)
+        public Animation(Bitmap assetname, bool looping, float timePerFrame)
             : base(assetname)
         {
             IsLooping = looping;

@@ -1,13 +1,8 @@
-﻿using Shooter.GameObjects;
-using System;
-using System.Collections.Generic;
+﻿using _2DGame.GameObjects;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Shooter
+namespace _2DGame.Engine
 {
     class Collision
     {

@@ -1,12 +1,8 @@
-﻿using Shooter.GameObjects;
-using System;
-using System.Collections.Generic;
+﻿using _2DGame.GameObjects;
+using _2DGame.Properties;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Shooter.Levels.LevelObjects
+namespace _2DGame.LevelObjects
 {
     class Tile : GameObject
     {
@@ -23,23 +19,9 @@ namespace Shooter.Levels.LevelObjects
             this.type = type;
             this.surface = surface;
 
-            //string surfaceExtenstion = "";
-            //if(surface == SurfaceType.Hot)
-            //{
-            //    surfaceExtenstion = "_hot";
-            //}
-            //else if(surface == SurfaceType.Ice)
-            //{
-            //    surfaceExtenstion = "_ice";
-            //}
-
-            if(type == Type.Wall)
+            if(type == Type.Platform)
             {
-                //image = new SpriteGameObject("" + surfaceExtenstion);
-            }
-            else if(type == Type.Platform)
-            {
-                image = new SpriteGameObject(@"F:\Projekty\Shooter\shooter2\Shooter\Resources\test.png");
+                image = new SpriteGameObject(Resources.test);// @"C:\Users\bezimienny\Desktop\Nowy folder\2dGame\2DGame\2DGame\Resources\test.png");
             }
 
             if(image != null)

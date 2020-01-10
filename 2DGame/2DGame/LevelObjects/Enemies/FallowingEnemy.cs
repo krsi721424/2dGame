@@ -1,29 +1,26 @@
-﻿using Shooter.GameObjects;
-using Shooter.Levels.LevelObjects.Animation;
-using Shooter.PathFinding;
-using System;
+﻿using _2DGame.Levels;
+using _2DGame.PathFinding;
+using _2DGame.GameObjects;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using _2DGame.Properties;
 
-namespace Shooter.Levels.LevelObjects.Enemies
+namespace _2DGame.LevelObjects.Enemies
 {
-    class FallowingEnemy : AnimatedGameObject
+    class FallowingEnemy : Animation.AnimatedGameObject
     {
         public Stack<MatrixNode> Path { get; set; }
         protected Level level;
-        Point startPosition;
+        Engine.Point startPosition;
         const float walkSpeed = 180;
 
-        public FallowingEnemy(Level level, Point startPosition)
+        public FallowingEnemy(Level level, Engine.Point startPosition)
         {
             this.level = level;
             this.startPosition = startPosition;
             Path = new Stack<MatrixNode>();
 
-            LoadAnimation(@"F:\Projekty\Shooter\shooter2\Shooter\Resources\test.png", "idle", true, 0.1f);
+            LoadAnimation(Resources.test, "idle", true, 0.1f);
 
             this.Reset();
         }
@@ -71,7 +68,7 @@ namespace Shooter.Levels.LevelObjects.Enemies
         public override void Reset()
         {
             LocalPosition = startPosition;
-            velocity = Point.Zero;
+            velocity = Engine.Point.Zero;
 
             // start with the idle sprite
             PlayAnimation("idle", true);

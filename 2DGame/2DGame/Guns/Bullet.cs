@@ -1,27 +1,22 @@
-﻿using Shooter.GameObjects;
-using Shooter.Levels;
-using Shooter.Levels.LevelObjects.Enemies;
-using System;
-using System.Collections.Generic;
+﻿using _2DGame.Engine;
+using _2DGame.GameObjects;
+using _2DGame.LevelObjects.Enemies;
+using _2DGame.Levels;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
-namespace Shooter
+namespace _2DGame.Guns
 {
     class Bullet : GameObject
     {
-        public Point Velocity { get; set; }
+        public Engine.Point Velocity { get; set; }
         private Direction direction;
         private Level level;
 
         public Bullet(int x, int y, Direction direction, Level level)
         {
-            this.LocalPosition = new Point(x + 11, y + 11);
+            this.LocalPosition = new Engine.Point(x + 11, y + 11);
             this.speed = 80;
-            this.velocity = Point.Zero;
+            this.velocity = Engine.Point.Zero;
             this.direction = direction;
             this.level = level;
         }

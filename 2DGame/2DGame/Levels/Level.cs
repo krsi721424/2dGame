@@ -1,12 +1,10 @@
-﻿using _2DGame.GameObjects;
-using _2DGame.Levels.LevelObjects;
-using _2DGame.Levels.LevelObjects.Enemies;
+﻿using _2DGame.Engine;
+using _2DGame.GameObjects;
+using _2DGame.LevelObjects;
+using _2DGame.LevelObjects.Enemies;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _2DGame.Levels
 {
@@ -25,7 +23,7 @@ namespace _2DGame.Levels
         public Tile[,] Tiles { get; private set; }
         private List<Point> enemiesStaringPoint;
 
-        public Shooter.Levels.LevelObjects.Player Player { get; private set; }
+        public Player Player { get; private set; }
         public int LevelIndex { get; private set; }
 
         bool completionDetected;
@@ -146,7 +144,7 @@ namespace _2DGame.Levels
         void LoadCharacter(int x, int y)
         {
             // create the character
-            Player = new Shooter.Levels.LevelObjects.Player(this, GetCellBottomCenter(x, y));
+            Player = new Player(this, GetCellBottomCenter(x, y));
             AddChild(Player);
         }
 

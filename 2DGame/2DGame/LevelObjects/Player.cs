@@ -1,40 +1,32 @@
-﻿using Shooter.Guns;
-using Shooter.Levels.LevelObjects.Animation;
-using Shooter.Levels.LevelObjects.Enemies;
-using Shooter.Properties;
-using System;
-using System.Collections.Generic;
+﻿using _2DGame.Engine;
+using _2DGame.Guns;
+using _2DGame.LevelObjects.Animation;
+using _2DGame.LevelObjects.Enemies;
+using _2DGame.Levels;
+using _2DGame.Properties;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Shooter.Levels.LevelObjects
+namespace _2DGame.LevelObjects
 {
     class Player : AnimatedGameObject
     {
         const float walkingSpeed = 150; // Standard walking speed.
 
         Level level;
-        Point startPosition;
+        Engine.Point startPosition;
         IGun gun;
 
         public bool IsAlive { get; private set; }
 
-        public Player(Level level, Point startPosition) 
+        public Player(Level level, Engine.Point startPosition) 
             : base()
         {
             this.level = level;
             this.startPosition = startPosition;            
 
             // load all animations
-            LoadAnimation(@"F:\Projekty\Shooter\shooter2\Shooter\Resources\test.png", "idle", true, 0.1f); //TODO change path to general
-            //LoadAnimation("Sprites/LevelObjects/Player/spr_run@13", "run", true, 0.04f);
-            //LoadAnimation("Sprites/LevelObjects/Player/spr_jump@14", "jump", false, 0.08f);
-            //LoadAnimation("Sprites/LevelObjects/Player/spr_celebrate@14", "celebrate", false, 0.05f);
-            //LoadAnimation("Sprites/LevelObjects/Player/spr_die@5", "die", true, 0.1f);
-            //LoadAnimation("Sprites/LevelObjects/Player/spr_explode@5x5", "explode", false, 0.04f);
+            LoadAnimation(Resources.test, "idle", true, 0.1f); //TODO change path to general
 
             this.Rectangle = new Rectangle(0, 0, 32, 32);           
 
@@ -45,7 +37,7 @@ namespace Shooter.Levels.LevelObjects
         {
             // go back to the starting position
             LocalPosition = startPosition;
-            velocity = Point.Zero;
+            velocity = Engine.Point.Zero;
 
             this.gun = new Revolver();
 
@@ -63,7 +55,7 @@ namespace Shooter.Levels.LevelObjects
 
         void SetOriginToBottomCenter()
         {
-            Origin = new Point(sprite.Width / 2, sprite.Height);
+            Origin = new Engine.Point(sprite.Width / 2, sprite.Height);
         }
 
         #region Move
@@ -90,7 +82,7 @@ namespace Shooter.Levels.LevelObjects
 
         public override void Update(float currentFps)
         {
-            Point previousPosition = LocalPosition;
+            Engine.Point previousPosition = LocalPosition;
 
             if (UserInputController.KeyPressed(Keys.D))
                 this.MoveRight();
@@ -140,32 +132,18 @@ namespace Shooter.Levels.LevelObjects
             if (IsAlive)
             {
                 LocalPosition += (velocity * walkingSpeed) * (1 / currentFps);
-                velocity = Point.Zero;
+                velocity = Engine.Point.Zero;
 
                 this.gun.Update(this.level, this);
             }
 
         }
 
-        //Rectangle BoundingBoxForCollisions
-        //{
-        //    get
-        //    {
-        //        Rectangle bbox = BoundingBox;
-        //        // adjust the bounding box
-        //        bbox.X += 20;
-        //        bbox.Width -= 40;
-        //        bbox.Height += 1;
-
-        //        return bbox;
-        //    }
-        //}
-
         public void Die()
         {
             IsAlive = false;
             // stop moving
-            velocity = Point.Zero;
+            velocity = Engine.Point.Zero;
 
             GameManager.Instance.GameOver();
         }

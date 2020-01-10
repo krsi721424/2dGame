@@ -1,18 +1,13 @@
-﻿using Shooter.Content;
-using System;
-using System.Collections.Generic;
+﻿using _2DGame.Content;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Shooter.GameObjects
+namespace _2DGame.GameObjects
 {
     class SpriteGameObject : GameObject
     {
         protected SpriteSheet sprite;
 
-        public Point Origin { get; set; }
+        public Engine.Point Origin { get; set; }
 
         public int SheetIndex
         {
@@ -20,14 +15,14 @@ namespace Shooter.GameObjects
             set { sprite.SheetIndex = value; }
         }
 
-        public SpriteGameObject(string spriteName, int sheetIndex = 0)
+        public SpriteGameObject(Bitmap spriteName, int sheetIndex = 0)
         {
             if(spriteName != null)
             {
                 this.sprite = new SpriteSheet(spriteName, sheetIndex);
             }
 
-            Origin = Point.Zero;
+            Origin = Engine.Point.Zero;
         }
 
         public override void Draw(Graphics graphics)

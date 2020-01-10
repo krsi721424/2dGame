@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using _2DGame.Levels;
+using _2DGame.Properties;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Shooter.Levels;
-using Shooter.Levels.LevelObjects;
 
-namespace Shooter.GameStates.States
+namespace _2DGame.GameStates.States
 {
     class PlayingState : GameState
     {
@@ -47,7 +42,7 @@ namespace Shooter.GameStates.States
 
         public void LoadLevel(int level)
         {
-            this.level = new Level(1, $"level{level}.txt");
+            this.level = new Level(1, $@"C:\Users\bezimienny\Desktop\Nowy folder\2dGame\2DGame\2DGame\Resources\level{level}.txt");
         }
 
     }

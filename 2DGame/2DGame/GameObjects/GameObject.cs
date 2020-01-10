@@ -1,19 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 
-namespace Shooter.GameObjects
+namespace _2DGame.GameObjects
 {
     class GameObject : IGameLoopObject
     {
-        public Point LocalPosition { get; set; }
+        public Engine.Point LocalPosition { get; set; }
 
         protected float speed;
 
-        protected Point velocity;
+        protected Engine.Point velocity;
 
         public Rectangle Rectangle { get; set; }
 
@@ -23,8 +18,8 @@ namespace Shooter.GameObjects
 
         public GameObject()
         {
-            LocalPosition = Point.Zero;
-            velocity = Point.Zero;
+            LocalPosition = Engine.Point.Zero;
+            velocity = Engine.Point.Zero;
             speed = 0;
             Visible = true;
         }
@@ -35,7 +30,7 @@ namespace Shooter.GameObjects
 
         public virtual void Reset()
         {
-            velocity = Point.Zero;
+            velocity = Engine.Point.Zero;
         }
 
         public virtual void Update(float currentFps)
@@ -43,7 +38,7 @@ namespace Shooter.GameObjects
             LocalPosition += (velocity * speed) * (1 / currentFps);                    
         }
 
-        public Point GlobalPosition
+        public Engine.Point GlobalPosition
         {
             get
             {

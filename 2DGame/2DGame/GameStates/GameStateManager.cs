@@ -1,12 +1,8 @@
-﻿using Shooter.GameObjects;
-using System;
+﻿using _2DGame.GameObjects;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Shooter.GameStates
+namespace _2DGame.GameStates
 {
     class GameStateManager : IGameLoopObject
     {
